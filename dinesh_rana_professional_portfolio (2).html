@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh Rana | Professional Portfolio</title>
+    <meta name="description" content="Professional portfolio of Dinesh Rana, Tally Accounting Specialist, ERP Support Expert, and AI-Powered Digital Professional based in Gandhidham, India.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons (Updated to reliable CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind Config for Custom Colors and Animations -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#030712', // Ultra dark background
+                            800: '#0f172a',
+                            700: '#1e293b',
+                        },
+                        electric: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030712;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15);
+            border-color: rgba(14, 165, 233, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #38bdf8, #0ea5e9, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+
+        /* Reveal Animation Classes - Made robust */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Fallback if JS fails completely to ensure content is visible */
+        noscript .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #0ea5e9; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="antialiased selection:bg-electric-500 selection:text-white relative">
+
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-electric-600/10 mix-blend-screen filter blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-900/20 mix-blend-screen filter blur-[120px] animate-blob animation-delay-2000"></div>
+    </div>
+
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer">
+                    <a href="#home" class="font-serif text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
+                        <span class="w-8 h-8 rounded bg-gradient-to-br from-electric-400 to-electric-600 flex items-center justify-center text-sm shadow-[0_0_15px_rgba(14,165,233,0.5)]">DR</span>
+                        Dinesh<span class="text-electric-500">.</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Skills</a>
+                        <a href="#experience" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Experience</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="#contact" class="bg-electric-600 hover:bg-electric-500 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.4)] hover:shadow-[0_0_25px_rgba(14,165,233,0.6)]">Hire Me</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-900/95 backdrop-blur-xl absolute w-full border-t border-white/10 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Home</a>
+                <a href="#skills" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Skills</a>
+                <a href="#experience" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Experience</a>
+                <a href="#projects" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Projects</a>
+                <a href="#about" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">About</a>
+                <a href="#contact" class="mobile-link bg-electric-600 text-white text-center block px-3 py-3 mt-4 rounded-md text-base font-bold">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 min-h-screen flex items-center justify-center border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center max-w-4xl mx-auto reveal active">
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+                    <span class="text-gradient font-serif uppercase tracking-widest">DINESH RANA</span>
+                </h1>
+                
+                <div class="flex flex-col gap-3 text-lg md:text-xl text-gray-300 font-medium mb-8">
+                    <span class="bg-dark-800/80 border border-white/10 px-6 py-3 rounded-full shadow-lg mx-auto inline-block text-electric-400 w-fit">Tally Accounting Specialist</span>
+                    <span class="bg-dark-800/80 border border-white/10 px-6 py-3 rounded-full shadow-lg mx-auto inline-block text-electric-400 w-fit">Technical Support Expert</span>
+                    <span class="bg-dark-800/80 border border-white/10 px-6 py-3 rounded-full shadow-lg mx-auto inline-block text-electric-400 w-fit">AI-Powered Digital Professional</span>
+                </div>
+                
+                <p class="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed max-w-3xl mx-auto">
+                    Helping businesses streamline Accounting, Technical Support, and Digital Solutions.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-300 mb-12 bg-dark-800/50 p-4 rounded-2xl border border-white/5 inline-flex">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-electric-400"></i> Gandhidham, India
+                    </div>
+                    <a href="tel:+919328142199" class="flex items-center gap-2 hover:text-electric-400 transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5 text-electric-400"></i> +91 9328142199
+                    </a>
+                    <a href="https://wa.me/919328142199" target="_blank" class="flex items-center gap-2 hover:text-green-400 transition-colors">
+                        <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i> WhatsApp
+                    </a>
+                    <a href="mailto:dineshrana24718@gmail.com" class="flex items-center gap-2 hover:text-electric-400 transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5 text-electric-400"></i> Email
+                    </a>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-5">
+                    <a href="#contact" class="flex items-center justify-center gap-2 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-electric-400 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(14,165,233,0.4)]">
+                        Hire Me
+                    </a>
+                    <a href="#contact" class="flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg border-2 border-gray-600 text-gray-300 hover:bg-white/5 hover:border-gray-400 transition-all">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Introduction</h2>
+                <h3 class="text-4xl font-serif font-bold text-white">About Me</h3>
+                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="glass-card p-8 md:p-12 rounded-3xl reveal relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-electric-600/10 rounded-full blur-[80px]"></div>
+                
+                <i data-lucide="user" class="text-electric-500/40 w-16 h-16 mb-6"></i>
+                
+                <div class="space-y-6 text-lg text-gray-300 leading-relaxed relative z-10">
+                    <p>
+                        I am a dedicated Accounting and Technical Support Professional with more than 2 years of experience working with Tally Prime, ERP solutions, accounting software support, and customer success.
+                    </p>
+                    <p>
+                        At Yesha Software Company, I have helped businesses manage accounting systems, resolve technical issues, support ERP implementations, and improve operational efficiency.
+                    </p>
+                    <p>
+                        I also have experience in Website Design and AI-powered productivity tools, allowing me to bridge the gap between Accounting and Technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 relative border-b border-white/5 bg-dark-800/30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Career</h2>
+                <h3 class="text-4xl font-serif font-bold text-white">Experience</h3>
+                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="reveal">
+                <div class="glass-card p-8 md:p-12 rounded-3xl border-l-4 border-l-electric-500">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 border-b border-white/10 pb-6">
+                        <div>
+                            <h4 class="text-3xl font-bold text-white mb-2">Yesha Software Company</h4>
+                            <p class="text-electric-400 font-semibold text-xl">Technical Support & Accounting Executive</p>
+                        </div>
+                        <div class="mt-4 md:mt-0 bg-dark-800 border border-white/10 text-gray-300 px-5 py-2 rounded-full flex items-center gap-2 shadow-lg w-fit">
+                            <i data-lucide="clock" class="w-4 h-4 text-electric-500"></i> Duration: 2+ Years
+                        </div>
+                    </div>
+                    
+                    <h5 class="text-xl text-white font-semibold mb-6 flex items-center gap-2">
+                        <i data-lucide="briefcase" class="text-electric-500"></i> Responsibilities:
+                    </h5>
+                    
+                    <div class="grid sm:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Tally Prime Support</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Tally ERP Support</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Accounting Software Troubleshooting</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">ERP System Assistance</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Client Training & Support</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Software Installation & Configuration</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Customer Issue Resolution</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Technical Consultation</span></div>
+                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Business Software Implementation</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">What I Offer</h2>
+                <h3 class="text-4xl font-serif font-bold text-white">Services</h3>
+                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl reveal group">
+                    <div class="w-16 h-16 rounded-xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="calculator" class="w-8 h-8 text-electric-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Tally Accounting Services</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Accounting setup, maintenance, reporting, and support.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="wrench" class="w-8 h-8 text-indigo-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Technical Support</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Software installation, issue resolution, and training.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal group">
+                    <div class="w-16 h-16 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-text" class="w-8 h-8 text-purple-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">GST Assistance</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">GST-related support and accounting guidance.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="monitor" class="w-8 h-8 text-teal-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Website Design</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Business website design and digital presence solutions.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cpu" class="w-8 h-8 text-cyan-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">AI Tools & Platforms</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Practical knowledge and hands-on experience using modern AI platforms to enhance daily workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 relative border-b border-white/5 bg-dark-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Capabilities</h2>
+                <h3 class="text-4xl font-serif font-bold text-white">Skills</h3>
+                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Accounting -->
+                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-green-500">
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+                        <i data-lucide="pie-chart" class="text-green-400"></i> Accounting
+                    </h4>
+                    <ul class="space-y-4 text-lg text-gray-300">
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>Tally Prime</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>Bookkeeping</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>Financial Reporting</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>GST Management</span></li>
+                    </ul>
+                </div>
+
+                <!-- Technical -->
+                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-electric-500" style="transition-delay: 100ms;">
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+                        <i data-lucide="settings" class="text-electric-400"></i> Technical
+                    </h4>
+                    <ul class="space-y-4 text-lg text-gray-300">
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Technical Support</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Troubleshooting</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Client Management</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Software Implementation</span></li>
+                    </ul>
+                </div>
+
+                <!-- Digital -->
+                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-purple-500" style="transition-delay: 200ms;">
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+                        <i data-lucide="layout-grid" class="text-purple-400"></i> Digital
+                    </h4>
+                    <ul class="space-y-4 text-lg text-gray-300">
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>Website Design</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>AI Tools</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>Digital Solutions</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>Business Automation</span></li>
+                    </ul>
+                </div>
+
+                <!-- Growth / Business -->
+                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-rose-500" style="transition-delay: 300ms;">
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+                        <i data-lucide="trending-up" class="text-rose-400"></i> Growth
+                    </h4>
+                    <ul class="space-y-4 text-lg text-gray-300">
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Sales Management</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Lead Generation</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Digital Marketing</span></li>
+                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Business Development</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Portfolio</h2>
+                <h3 class="text-4xl font-serif font-bold text-white">Projects</h3>
+                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="flex justify-center">
+                <!-- Project 1 UI Update -->
+                <div class="glass-card p-0 rounded-3xl reveal relative overflow-hidden group w-full max-w-4xl border border-white/10 flex flex-col md:flex-row">
+                    <!-- Left side -->
+                    <div class="md:w-2/5 bg-dark-900/60 p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="w-16 h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center mb-6 border border-teal-500/30 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(20,184,166,0.2)]">
+                            <i data-lucide="layout" class="text-teal-400 w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold text-white mb-2 relative z-10">Website Design</h4>
+                        <p class="text-teal-400 font-medium tracking-wider uppercase text-sm relative z-10">Live Project</p>
+                    </div>
+                    
+                    <!-- Right side -->
+                    <div class="md:w-3/5 p-10 flex flex-col justify-center bg-gradient-to-l from-transparent to-dark-800/20">
+                        <h5 class="text-2xl font-semibold text-white mb-4">tallykipathshala.com</h5>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                            Designed and developed a modern, high-performance business website focused on optimal user experience, fast loading speeds, and responsive performance.
+                        </p>
+                        <div class="flex mt-auto">
+                            <a href="https://tallykipathshala.com" target="_blank" class="inline-flex items-center gap-3 bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 border border-teal-500/30 px-6 py-3 rounded-xl font-medium transition-all group-hover:shadow-[0_0_20px_rgba(20,184,166,0.2)] group-hover:-translate-y-1">
+                                <span>Visit Website</span>
+                                <i data-lucide="external-link" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-20 pointer-events-none">
+             <div class="w-[800px] h-[800px] bg-electric-600 rounded-full mix-blend-screen filter blur-[150px] animate-pulse-slow"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
+            <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-4">Contact</h2>
+            <h3 class="text-5xl font-serif font-bold text-white mb-8">Let's Work Together</h3>
+            
+            <p class="text-xl text-gray-300 mb-6 max-w-2xl mx-auto font-light leading-relaxed">
+                Looking for support with Accounting, Tally, Technical Issues, Website Design, or AI Tools?
+            </p>
+            <p class="text-2xl text-white font-medium mb-12">Get in touch today.</p>
+
+            <div class="glass-card p-8 md:p-10 rounded-3xl inline-block w-full max-w-4xl mx-auto border border-white/10 shadow-2xl">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <!-- Phone -->
+                    <a href="tel:+919328142199" class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-electric-500/40 hover:bg-dark-800/50 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-electric-400 shadow-lg group-hover:scale-110 transition-transform">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-white group-hover:text-electric-400 transition-colors text-sm font-medium">+91 9328142199</span>
+                    </a>
+                    
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/919328142199" target="_blank" class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-green-500/40 hover:bg-dark-800/50 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-green-400 shadow-lg group-hover:scale-110 transition-transform">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-white group-hover:text-green-400 transition-colors text-sm font-medium">WhatsApp Me</span>
+                    </a>
+                    
+                    <!-- Email -->
+                    <a href="mailto:dineshrana24718@gmail.com" class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-electric-500/40 hover:bg-dark-800/50 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-electric-400 shadow-lg group-hover:scale-110 transition-transform">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-white group-hover:text-electric-400 transition-colors text-sm font-medium px-2 text-center">dineshrana24718<br>@gmail.com</span>
+                    </a>
+                    
+                    <!-- Location -->
+                    <div class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-electric-500/40 hover:bg-dark-800/50 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-electric-400 shadow-lg group-hover:scale-110 transition-transform">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-white text-sm font-medium text-center">Gandhidham<br>India</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/919328142199" target="_blank" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-electric-400 text-white px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.5)] w-full sm:w-auto">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i> Let's Chat
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-white/10 bg-dark-900 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Dinesh Rana. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Safe initialization for Icons
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                } else {
+                    console.warn("Lucide icons not loaded from CDN.");
+                }
+            } catch (e) {
+                console.error("Icon initialization error:", e);
+            }
+
+            // Mobile Menu
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Navbar blur effect
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) {
+                        navbar.classList.add('shadow-lg', 'bg-dark-900/90');
+                        navbar.classList.remove('glass');
+                    } else {
+                        navbar.classList.remove('shadow-lg', 'bg-dark-900/90');
+                        navbar.classList.add('glass');
+                    }
+                });
+            }
+
+            // Scroll Reveal Functionality
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 50; 
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
+                }
+            }
+            
+            // Event listeners for scroll reveal
+            window.addEventListener("scroll", reveal);
+            // Run immediately in case elements are already in view
+            reveal(); 
+            // Run after a short delay to ensure layout is complete
+            setTimeout(reveal, 200);
+        });
+    </script>
+</body>
+</html>
