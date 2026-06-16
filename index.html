@@ -3,51 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinesh Rana | Professional Portfolio</title>
-    <meta name="description" content="Professional portfolio of Dinesh Rana, Tally Accounting Specialist, ERP Support Expert, and AI-Powered Digital Professional based in Gandhidham, India.">
+    <title>Dinesh Rana | Business Automation & Technology Consultant</title>
     
+    <!-- Meta Keywords & SEO -->
+    <meta name="description" content="Dinesh Rana - Tally Expert, Business Automation Specialist, Website Designer, Digital Marketing Consultant. Helping Businesses Grow Through Technology.">
+    <meta name="keywords" content="Tally Expert, Tally Customization, TDL Developer, Website Designer, Lead Generation Expert, Digital Marketing Consultant, Business Automation Specialist">
+    <meta name="author" content="Dinesh Rana">
+
+    <!-- Fonts: Outfit (Modern & Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons (Updated to reliable CDN) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Tailwind Config for Custom Colors and Animations -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
                     },
                     colors: {
-                        dark: {
-                            900: '#030712', // Ultra dark background
-                            800: '#0f172a',
-                            700: '#1e293b',
-                        },
-                        electric: {
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                        }
+                        primary: '#2563eb',   // Blue 600
+                        secondary: '#4f46e5', // Indigo 600
+                        accent: '#06b6d4',    // Cyan 500
+                        lightbg: '#f8fafc',
                     },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        }
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                        'glow': '0 0 20px rgba(37, 99, 235, 0.3)',
                     }
                 }
             }
@@ -56,46 +44,76 @@
 
     <style>
         body {
-            background-color: #030712;
-            color: #f8fafc;
+            background-color: #f8fafc;
+            color: #0f172a;
             overflow-x: hidden;
         }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
         
-        .glass {
-            background: rgba(15, 23, 42, 0.6);
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .glass-card {
-            background: linear-gradient(145deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15);
-            border-color: rgba(14, 165, 233, 0.3);
+        /* 3D Canvas Background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
+        /* Typing Effect Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #2563eb;
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+            height: 1em;
+            vertical-align: text-bottom;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Gradient Text */
         .text-gradient {
-            background: linear-gradient(to right, #38bdf8, #0ea5e9, #0284c7);
+            background: linear-gradient(135deg, #2563eb, #4f46e5, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #030712; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+        /* Card Hover Effects */
+        .hover-card-3d {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            will-change: transform;
+        }
+        .hover-card-3d:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
 
-        /* Reveal Animation Classes - Made robust */
+        /* Scroll Reveal Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -105,460 +123,996 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Fallback if JS fails completely to ensure content is visible */
-        noscript .reveal {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Background Animated Blobs for Light Theme Depth */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -2;
+            opacity: 0.4;
+            animation: floatBlob 20s infinite alternate ease-in-out;
+        }
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.1); }
+            100% { transform: translate(-50px, 100px) scale(0.9); }
         }
 
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: -4px; left: 0; background-color: #0ea5e9; transition: width 0.3s ease;
+        /* Hide Scrollbar for Slider */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .nav-link:hover::after { width: 100%; }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body class="antialiased selection:bg-electric-500 selection:text-white relative">
+<body class="antialiased relative">
 
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-electric-600/10 mix-blend-screen filter blur-[120px] animate-pulse-slow"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-900/20 mix-blend-screen filter blur-[120px] animate-blob animation-delay-2000"></div>
-    </div>
+    <!-- Background Blobs -->
+    <div class="bg-blob bg-blue-300 w-96 h-96 top-0 left-[-100px]"></div>
+    <div class="bg-blob bg-indigo-300 w-[500px] h-[500px] top-[40%] right-[-150px]"></div>
+    <div class="bg-blob bg-cyan-200 w-[400px] h-[400px] bottom-0 left-[20%]"></div>
 
-    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 cursor-pointer">
-                    <a href="#home" class="font-serif text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-                        <span class="w-8 h-8 rounded bg-gradient-to-br from-electric-400 to-electric-600 flex items-center justify-center text-sm shadow-[0_0_15px_rgba(14,165,233,0.5)]">DR</span>
-                        Dinesh<span class="text-electric-500">.</span>
-                    </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                        <a href="#skills" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Skills</a>
-                        <a href="#experience" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Experience</a>
-                        <a href="#projects" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Projects</a>
-                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">About</a>
-                        <a href="#contact" class="bg-electric-600 hover:bg-electric-500 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-[0_0_15px_rgba(14,165,233,0.4)] hover:shadow-[0_0_25px_rgba(14,165,233,0.6)]">Hire Me</a>
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        DR
                     </div>
+                    <span class="font-bold text-2xl text-slate-800 tracking-tight">Dinesh<span class="text-primary">.</span></span>
                 </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-slate-600 hover:text-primary font-medium transition-colors">Services</a>
+                    <a href="#expertise" class="text-slate-600 hover:text-primary font-medium transition-colors">Expertise</a>
+                    <a href="#portfolio" class="text-slate-600 hover:text-primary font-medium transition-colors">Portfolio</a>
+                    <a href="#about" class="text-slate-600 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="#contact" class="px-6 py-2.5 rounded-full bg-slate-900 text-white font-medium hover:bg-primary transition-all shadow-md hover:shadow-glow transform hover:-translate-y-0.5">Let's Talk</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-dark-900/95 backdrop-blur-xl absolute w-full border-t border-white/10 shadow-2xl">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Home</a>
-                <a href="#skills" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Skills</a>
-                <a href="#experience" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Experience</a>
-                <a href="#projects" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">Projects</a>
-                <a href="#about" class="mobile-link text-gray-300 hover:text-white block px-3 py-3 rounded-md text-base font-medium">About</a>
-                <a href="#contact" class="mobile-link bg-electric-600 text-white text-center block px-3 py-3 mt-4 rounded-md text-base font-bold">Hire Me</a>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card absolute w-full top-20 border-t border-slate-200">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col shadow-xl">
+                <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Services</a>
+                <a href="#expertise" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Expertise</a>
+                <a href="#portfolio" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Portfolio</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">About</a>
+                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-xl bg-primary text-white font-medium shadow-md">Contact Me</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="relative pt-32 pb-20 min-h-screen flex items-center justify-center border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="text-center max-w-4xl mx-auto reveal active">
-                
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
-                    <span class="text-gradient font-serif uppercase tracking-widest">DINESH RANA</span>
-                </h1>
-                
-                <div class="flex flex-col gap-3 text-lg md:text-xl text-gray-300 font-medium mb-8">
-                    <span class="bg-dark-800/80 border border-white/10 px-6 py-3 rounded-full shadow-lg mx-auto inline-block text-electric-400 w-fit">Tally Accounting Specialist</span>
-                    <span class="bg-dark-800/80 border border-white/10 px-6 py-3 rounded-full shadow-lg mx-auto inline-block text-electric-400 w-fit">Technical Support Expert</span>
-                    <span class="bg-dark-800/80 border border-white/10 px-6 py-3 rounded-full shadow-lg mx-auto inline-block text-electric-400 w-fit">AI-Powered Digital Professional</span>
-                </div>
-                
-                <p class="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed max-w-3xl mx-auto">
-                    Helping businesses streamline Accounting, Technical Support, and Digital Solutions.
-                </p>
-                
-                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-300 mb-12 bg-dark-800/50 p-4 rounded-2xl border border-white/5 inline-flex">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="map-pin" class="w-5 h-5 text-electric-400"></i> Gandhidham, India
-                    </div>
-                    <a href="tel:+919328142199" class="flex items-center gap-2 hover:text-electric-400 transition-colors">
-                        <i data-lucide="phone" class="w-5 h-5 text-electric-400"></i> +91 9328142199
-                    </a>
-                    <a href="https://wa.me/919328142199" target="_blank" class="flex items-center gap-2 hover:text-green-400 transition-colors">
-                        <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i> WhatsApp
-                    </a>
-                    <a href="mailto:dineshrana24718@gmail.com" class="flex items-center gap-2 hover:text-electric-400 transition-colors">
-                        <i data-lucide="mail" class="w-5 h-5 text-electric-400"></i> Email
-                    </a>
-                </div>
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- 3D Canvas Background -->
+        <canvas id="hero-canvas"></canvas>
 
-                <div class="flex flex-col sm:flex-row justify-center gap-5">
-                    <a href="#contact" class="flex items-center justify-center gap-2 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-electric-400 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(14,165,233,0.4)]">
-                        Hire Me
-                    </a>
-                    <a href="#contact" class="flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg border-2 border-gray-600 text-gray-300 hover:bg-white/5 hover:border-gray-400 transition-all">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 relative border-b border-white/5">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Introduction</h2>
-                <h3 class="text-4xl font-serif font-bold text-white">About Me</h3>
-                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="glass-card p-8 md:p-12 rounded-3xl reveal relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-electric-600/10 rounded-full blur-[80px]"></div>
-                
-                <i data-lucide="user" class="text-electric-500/40 w-16 h-16 mb-6"></i>
-                
-                <div class="space-y-6 text-lg text-gray-300 leading-relaxed relative z-10">
-                    <p>
-                        I am a dedicated Accounting and Technical Support Professional with more than 2 years of experience working with Tally Prime, ERP solutions, accounting software support, and customer success.
-                    </p>
-                    <p>
-                        At Yesha Software Company, I have helped businesses manage accounting systems, resolve technical issues, support ERP implementations, and improve operational efficiency.
-                    </p>
-                    <p>
-                        I also have experience in Website Design and AI-powered productivity tools, allowing me to bridge the gap between Accounting and Technology.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-24 relative border-b border-white/5 bg-dark-800/30">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Career</h2>
-                <h3 class="text-4xl font-serif font-bold text-white">Experience</h3>
-                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="reveal">
-                <div class="glass-card p-8 md:p-12 rounded-3xl border-l-4 border-l-electric-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-8 border-b border-white/10 pb-6">
-                        <div>
-                            <h4 class="text-3xl font-bold text-white mb-2">Yesha Software Company</h4>
-                            <p class="text-electric-400 font-semibold text-xl">Technical Support & Accounting Executive</p>
-                        </div>
-                        <div class="mt-4 md:mt-0 bg-dark-800 border border-white/10 text-gray-300 px-5 py-2 rounded-full flex items-center gap-2 shadow-lg w-fit">
-                            <i data-lucide="clock" class="w-4 h-4 text-electric-500"></i> Duration: 2+ Years
-                        </div>
-                    </div>
-                    
-                    <h5 class="text-xl text-white font-semibold mb-6 flex items-center gap-2">
-                        <i data-lucide="briefcase" class="text-electric-500"></i> Responsibilities:
-                    </h5>
-                    
-                    <div class="grid sm:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Tally Prime Support</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Tally ERP Support</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Accounting Software Troubleshooting</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">ERP System Assistance</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Client Training & Support</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Software Installation & Configuration</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Customer Issue Resolution</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Technical Consultation</span></div>
-                        <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-6 h-6 text-electric-500 shrink-0"></i> <span class="text-lg">Business Software Implementation</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 relative border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">What I Offer</h2>
-                <h3 class="text-4xl font-serif font-bold text-white">Services</h3>
-                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl reveal group">
-                    <div class="w-16 h-16 rounded-xl bg-electric-500/10 border border-electric-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="calculator" class="w-8 h-8 text-electric-400"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">Tally Accounting Services</h4>
-                    <p class="text-gray-400 leading-relaxed text-lg">Accounting setup, maintenance, reporting, and support.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal group" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="wrench" class="w-8 h-8 text-indigo-400"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">Technical Support</h4>
-                    <p class="text-gray-400 leading-relaxed text-lg">Software installation, issue resolution, and training.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal group">
-                    <div class="w-16 h-16 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="file-text" class="w-8 h-8 text-purple-400"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">GST Assistance</h4>
-                    <p class="text-gray-400 leading-relaxed text-lg">GST-related support and accounting guidance.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal group" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="monitor" class="w-8 h-8 text-teal-400"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">Website Design</h4>
-                    <p class="text-gray-400 leading-relaxed text-lg">Business website design and digital presence solutions.</p>
-                </div>
-
-                <div class="glass-card p-8 rounded-2xl reveal group" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="cpu" class="w-8 h-8 text-cyan-400"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-4">AI Tools & Platforms</h4>
-                    <p class="text-gray-400 leading-relaxed text-lg">Practical knowledge and hands-on experience using modern AI platforms to enhance daily workflows.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-24 relative border-b border-white/5 bg-dark-800/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Capabilities</h2>
-                <h3 class="text-4xl font-serif font-bold text-white">Skills</h3>
-                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Accounting -->
-                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-green-500">
-                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
-                        <i data-lucide="pie-chart" class="text-green-400"></i> Accounting
-                    </h4>
-                    <ul class="space-y-4 text-lg text-gray-300">
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>Tally Prime</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>Bookkeeping</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>Financial Reporting</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-green-500 mt-2.5 shrink-0"></div> <span>GST Management</span></li>
-                    </ul>
-                </div>
-
-                <!-- Technical -->
-                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-electric-500" style="transition-delay: 100ms;">
-                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
-                        <i data-lucide="settings" class="text-electric-400"></i> Technical
-                    </h4>
-                    <ul class="space-y-4 text-lg text-gray-300">
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Technical Support</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Troubleshooting</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Client Management</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-electric-500 mt-2.5 shrink-0"></div> <span>Software Implementation</span></li>
-                    </ul>
-                </div>
-
-                <!-- Digital -->
-                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-purple-500" style="transition-delay: 200ms;">
-                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
-                        <i data-lucide="layout-grid" class="text-purple-400"></i> Digital
-                    </h4>
-                    <ul class="space-y-4 text-lg text-gray-300">
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>Website Design</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>AI Tools</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>Digital Solutions</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-purple-500 mt-2.5 shrink-0"></div> <span>Business Automation</span></li>
-                    </ul>
-                </div>
-
-                <!-- Growth / Business -->
-                <div class="glass-card p-8 rounded-2xl reveal border-t-4 border-t-rose-500" style="transition-delay: 300ms;">
-                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
-                        <i data-lucide="trending-up" class="text-rose-400"></i> Growth
-                    </h4>
-                    <ul class="space-y-4 text-lg text-gray-300">
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Sales Management</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Lead Generation</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Digital Marketing</span></li>
-                        <li class="flex items-start gap-3"><div class="w-2 h-2 rounded-full bg-rose-500 mt-2.5 shrink-0"></div> <span>Business Development</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 relative border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-2">Portfolio</h2>
-                <h3 class="text-4xl font-serif font-bold text-white">Projects</h3>
-                <div class="w-20 h-1 bg-electric-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="flex justify-center">
-                <!-- Project 1 UI Update -->
-                <div class="glass-card p-0 rounded-3xl reveal relative overflow-hidden group w-full max-w-4xl border border-white/10 flex flex-col md:flex-row">
-                    <!-- Left side -->
-                    <div class="md:w-2/5 bg-dark-900/60 p-10 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="w-16 h-16 bg-teal-500/20 rounded-2xl flex items-center justify-center mb-6 border border-teal-500/30 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_20px_rgba(20,184,166,0.2)]">
-                            <i data-lucide="layout" class="text-teal-400 w-8 h-8"></i>
-                        </div>
-                        <h4 class="text-3xl font-bold text-white mb-2 relative z-10">Website Design</h4>
-                        <p class="text-teal-400 font-medium tracking-wider uppercase text-sm relative z-10">Live Project</p>
-                    </div>
-                    
-                    <!-- Right side -->
-                    <div class="md:w-3/5 p-10 flex flex-col justify-center bg-gradient-to-l from-transparent to-dark-800/20">
-                        <h5 class="text-2xl font-semibold text-white mb-4">tallykipathshala.com</h5>
-                        <p class="text-gray-300 text-lg leading-relaxed mb-8">
-                            Designed and developed a modern, high-performance business website focused on optimal user experience, fast loading speeds, and responsive performance.
-                        </p>
-                        <div class="flex mt-auto">
-                            <a href="https://tallykipathshala.com" target="_blank" class="inline-flex items-center gap-3 bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 border border-teal-500/30 px-6 py-3 rounded-xl font-medium transition-all group-hover:shadow-[0_0_20px_rgba(20,184,166,0.2)] group-hover:-translate-y-1">
-                                <span>Visit Website</span>
-                                <i data-lucide="external-link" class="w-5 h-5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-20 pointer-events-none">
-             <div class="w-[800px] h-[800px] bg-electric-600 rounded-full mix-blend-screen filter blur-[150px] animate-pulse-slow"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
-            <h2 class="text-sm font-bold tracking-widest text-electric-500 uppercase mb-4">Contact</h2>
-            <h3 class="text-5xl font-serif font-bold text-white mb-8">Let's Work Together</h3>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
             
-            <p class="text-xl text-gray-300 mb-6 max-w-2xl mx-auto font-light leading-relaxed">
-                Looking for support with Accounting, Tally, Technical Issues, Website Design, or AI Tools?
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-primary/20 text-primary font-semibold text-sm mb-6 reveal shadow-sm">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </span>
+                Available for New Projects
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 reveal" style="transition-delay: 0.1s;">
+                Hi, I'm <span class="text-gradient">Dinesh Rana</span>
+            </h1>
+            
+            <div class="text-2xl md:text-4xl font-semibold text-slate-700 mb-6 h-12 reveal" style="transition-delay: 0.2s;">
+                <span id="typed-text"></span><span class="cursor"></span>
+            </div>
+
+            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 reveal" style="transition-delay: 0.3s;">
+                "Helping Businesses Grow Through Technology, Automation & Digital Solutions."
             </p>
-            <p class="text-2xl text-white font-medium mb-12">Get in touch today.</p>
 
-            <div class="glass-card p-8 md:p-10 rounded-3xl inline-block w-full max-w-4xl mx-auto border border-white/10 shadow-2xl">
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    <!-- Phone -->
-                    <a href="tel:+919328142199" class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-electric-500/40 hover:bg-dark-800/50 transition-all group">
-                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-electric-400 shadow-lg group-hover:scale-110 transition-transform">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-white group-hover:text-electric-400 transition-colors text-sm font-medium">+91 9328142199</span>
-                    </a>
-                    
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/919328142199" target="_blank" class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-green-500/40 hover:bg-dark-800/50 transition-all group">
-                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-green-400 shadow-lg group-hover:scale-110 transition-transform">
-                            <i data-lucide="message-circle" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-white group-hover:text-green-400 transition-colors text-sm font-medium">WhatsApp Me</span>
-                    </a>
-                    
-                    <!-- Email -->
-                    <a href="mailto:dineshrana24718@gmail.com" class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-electric-500/40 hover:bg-dark-800/50 transition-all group">
-                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-electric-400 shadow-lg group-hover:scale-110 transition-transform">
-                            <i data-lucide="mail" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-white group-hover:text-electric-400 transition-colors text-sm font-medium px-2 text-center">dineshrana24718<br>@gmail.com</span>
-                    </a>
-                    
-                    <!-- Location -->
-                    <div class="flex flex-col items-center p-6 bg-dark-900/40 rounded-2xl border border-white/5 hover:border-electric-500/40 hover:bg-dark-800/50 transition-all group">
-                        <div class="w-14 h-14 rounded-full bg-dark-800 border border-gray-700 flex items-center justify-center mb-4 text-electric-400 shadow-lg group-hover:scale-110 transition-transform">
-                            <i data-lucide="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <p class="text-white text-sm font-medium text-center">Gandhidham<br>India</p>
-                    </div>
-                </div>
-
-                <a href="https://wa.me/919328142199" target="_blank" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-electric-600 to-electric-500 hover:from-electric-500 hover:to-electric-400 text-white px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(14,165,233,0.5)] w-full sm:w-auto">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i> Let's Chat
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay: 0.4s;">
+                <a href="#portfolio" class="px-8 py-4 rounded-full bg-primary text-white font-semibold text-lg shadow-lg shadow-primary/30 hover:bg-secondary transition-all hover:-translate-y-1 hover:shadow-xl flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase"></i> View Portfolio
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-full glass-card text-slate-800 font-semibold text-lg hover:bg-white/90 transition-all hover:-translate-y-1 hover:shadow-lg flex items-center justify-center gap-2 border-slate-300">
+                    <i class="fas fa-envelope text-primary"></i> Contact Me
+                </a>
+                <button onclick="openCvModal()" class="px-8 py-4 rounded-full border-2 border-slate-300 text-slate-700 font-semibold text-lg hover:border-primary hover:text-primary transition-all hover:-translate-y-1 flex items-center justify-center gap-2 bg-white/50 backdrop-blur-sm cursor-pointer">
+                    <i class="fas fa-download"></i> Download CV
+                </button>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#services" class="text-slate-400 hover:text-primary">
+                    <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="py-8 border-t border-white/10 bg-dark-900 text-center text-gray-500 text-sm">
-        <p>&copy; 2026 Dinesh Rana. All Rights Reserved.</p>
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">What I Offer</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900">Premium <span class="text-gradient">Services</span></h3>
+            </div>
+
+            <!-- Dynamic 3D Service Pills -->
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <!-- Badges generated to look like premium buttons -->
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-cogs mr-2 text-primary"></i> Tally Prime Solutions</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-code mr-2 text-secondary"></i> TDL Development</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-globe mr-2 text-accent"></i> Website Development</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-users mr-2 text-orange-500"></i> Lead Generation Services</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-chart-line mr-2 text-purple-500"></i> Digital Marketing</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-robot mr-2 text-blue-600"></i> Business Automation</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-exchange-alt mr-2 text-green-500"></i> Data Migration</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-search mr-2 text-indigo-500"></i> SEO Services</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-address-book mr-2 text-cyan-600"></i> CRM Solutions</div>
+                <div class="px-6 py-3 bg-white rounded-full shadow-md border border-slate-100 hover:border-primary hover:text-primary transition font-semibold text-slate-700 hover:-translate-y-1 cursor-pointer"><i class="fas fa-handshake mr-2 text-slate-800"></i> Business Consulting</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="py-24 bg-slate-50/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">My Superpowers</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900 mb-4">Core <span class="text-gradient">Expertise</span></h3>
+                <p class="text-slate-600 text-lg">A comprehensive skill set designed to scale your business operations, streamline finances, and boost digital presence.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Tally -->
+                <div class="glass-card rounded-3xl p-8 hover-card-3d reveal border-t border-l border-white/80">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Tally Accounting</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Accounting Management</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> GST Handling & Returns</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Inventory Tracking</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Financial & MIS Reports</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Customization -->
+                <div class="glass-card rounded-3xl p-8 hover-card-3d reveal border-t border-l border-white/80" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Tally Customization</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> Advanced TDL Development</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> Invoice Customizations</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> Custom Business Reports</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-secondary mt-1"></i> Workflow Automation</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Web Design -->
+                <div class="glass-card rounded-3xl p-8 hover-card-3d reveal border-t border-l border-white/80" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-600 text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Website Design</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-accent mt-1"></i> Corporate Business Sites</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-accent mt-1"></i> High-Converting Landing Pages</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-accent mt-1"></i> SEO-Friendly Architecture</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-accent mt-1"></i> Fully Responsive Design</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Lead Gen -->
+                <div class="glass-card rounded-3xl p-8 hover-card-3d reveal border-t border-l border-white/80">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Lead Generation</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-orange-500 mt-1"></i> FB & Google Lead Campaigns</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-orange-500 mt-1"></i> WhatsApp Marketing Setup</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-orange-500 mt-1"></i> Sales Funnel Creation</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-orange-500 mt-1"></i> CRM Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Digital Marketing -->
+                <div class="glass-card rounded-3xl p-8 hover-card-3d reveal border-t border-l border-white/80" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Digital Marketing</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-purple-500 mt-1"></i> SEO & Organic Growth</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-purple-500 mt-1"></i> Social Media Management</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-purple-500 mt-1"></i> Paid Advertising (Ads)</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-purple-500 mt-1"></i> Content Strategy</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Data & Sales -->
+                <div class="glass-card rounded-3xl p-8 hover-card-3d reveal border-t border-l border-white/80" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Data & Sales Ops</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> Excel to Tally Import</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> Bulk Data Migration</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> Client Handling & Demos</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-green-500 mt-1"></i> Lead Conversion Tactics</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Dark Mode Blob inside portfolio -->
+        <div class="absolute w-96 h-96 bg-primary rounded-full blur-[100px] opacity-20 top-0 left-0"></div>
+        <div class="absolute w-96 h-96 bg-accent rounded-full blur-[100px] opacity-20 bottom-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex justify-between items-end mb-12 reveal">
+                <div>
+                    <h2 class="text-accent font-bold tracking-wider uppercase text-sm mb-2">My Work</h2>
+                    <h3 class="text-4xl font-extrabold text-white">Project <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">Showcase</span></h3>
+                </div>
+                <div class="hidden md:flex gap-4">
+                    <button id="slideLeft" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition"><i class="fas fa-arrow-left"></i></button>
+                    <button id="slideRight" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition shadow-lg shadow-primary/30"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Slider Container -->
+            <div id="slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 reveal" style="scroll-behavior: smooth;">
+                
+                <!-- Project 1: Tally Ki Pathshala -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-800/50 backdrop-blur-md rounded-3xl p-6 border border-white/10 hover-card-3d group flex flex-col">
+                    <div class="h-48 bg-slate-700 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-globe text-5xl text-cyan-400 opacity-50 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute bottom-4 left-4 bg-cyan-500/20 text-cyan-400 text-xs px-3 py-1 rounded-full border border-cyan-500/30">Website Design</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Tally Ki Pathshala</h4>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Designed and developed a dedicated platform for learning Tally. Visit live project: <a href="http://tallykipathshala.com/" target="_blank" class="text-accent hover:text-white transition underline">tallykipathshala.com</a></p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300 mt-auto">
+                        <span class="px-2 py-1 bg-white/5 rounded">Web Dev</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">Education</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">SEO</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: TDL Customization -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-800/50 backdrop-blur-md rounded-3xl p-6 border border-white/10 hover-card-3d group flex flex-col">
+                    <div class="h-48 bg-slate-700 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-code text-5xl text-indigo-400 opacity-50 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute bottom-4 left-4 bg-indigo-500/20 text-indigo-400 text-xs px-3 py-1 rounded-full border border-indigo-500/30">TDL Solution</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">TDL Customization</h4>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Developed highly tailored Tally Definition Language (TDL) scripts to automate complex workflows, generate custom reports, and modify invoices as per client needs.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300 mt-auto">
+                        <span class="px-2 py-1 bg-white/5 rounded">TDL</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">Automation</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">Tally Prime</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Tally Accounting -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-800/50 backdrop-blur-md rounded-3xl p-6 border border-white/10 hover-card-3d group flex flex-col">
+                    <div class="h-48 bg-slate-700 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-file-invoice-dollar text-5xl text-green-500 opacity-50 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute bottom-4 left-4 bg-green-500/20 text-green-400 text-xs px-3 py-1 rounded-full border border-green-500/30">Accounting</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">End-to-End Tally Accounting</h4>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Successfully managed comprehensive accounting structures, seamless GST filings, inventory tracking, and MIS reporting for multiple businesses.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300 mt-auto">
+                        <span class="px-2 py-1 bg-white/5 rounded">Accounting</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">GST</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">MIS Reports</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Business Development -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-800/50 backdrop-blur-md rounded-3xl p-6 border border-white/10 hover-card-3d group flex flex-col">
+                    <div class="h-48 bg-slate-700 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center">
+                        <i class="fas fa-chart-line text-5xl text-orange-400 opacity-50 group-hover:scale-110 transition duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute bottom-4 left-4 bg-orange-500/20 text-orange-400 text-xs px-3 py-1 rounded-full border border-orange-500/30">Growth</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Business Development</h4>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Drove strategic business expansion through effective lead generation, high-conversion product demonstrations, and excellent client relationship management.</p>
+                    <div class="flex flex-wrap gap-2 text-xs text-slate-300 mt-auto">
+                        <span class="px-2 py-1 bg-white/5 rounded">Sales</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">Lead Gen</span>
+                        <span class="px-2 py-1 bg-white/5 rounded">Strategy</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image / Abstract Visual -->
+                <div class="relative reveal order-2 lg:order-1">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary to-accent rounded-3xl transform rotate-6 opacity-20 blur-xl"></div>
+                    <div class="relative glass-card p-2 rounded-3xl">
+                        <!-- Placeholder for Photo, using a professional gradient mesh style for now -->
+                        <div class="w-full h-[500px] rounded-2xl overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100"></div>
+                            <!-- Abstract Shapes representing Tech/Business -->
+                            <i class="fas fa-user-tie text-9xl text-slate-300 absolute opacity-50"></i>
+                            <div class="z-10 text-center p-8">
+                                <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6">
+                                    <span class="text-4xl font-bold text-gradient">DR</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-slate-800">Dinesh Rana</h3>
+                                <p class="text-primary font-medium">Business Tech Consultant</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -right-6 glass-card p-4 rounded-2xl shadow-xl border-t border-white flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-semibold">Certified</p>
+                                <p class="text-slate-800 font-bold">Tally Expert</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="reveal order-1 lg:order-2">
+                    <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">About Me</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+                        Transforming Businesses Through <span class="text-gradient">Technology</span>
+                    </h3>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        I am a technology-driven business consultant with deep expertise in Tally Accounting, Tally Customization, Website Design, Digital Marketing, Lead Generation, Sales, and Business Automation.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        My mission is to help businesses improve efficiency, generate more leads, and achieve sustainable growth by implementing the right digital solutions and automated workflows.
+                    </p>
+                    
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fas fa-check-circle text-accent"></i> Business Automation
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fas fa-check-circle text-accent"></i> Custom Tally Solutions
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fas fa-check-circle text-accent"></i> High-Converting Websites
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fas fa-check-circle text-accent"></i> Data-Driven Marketing
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500">Call Me Anytime</p>
+                                <a href="tel:+919328142199" class="text-lg font-bold text-slate-800 hover:text-primary transition">+91 9328142199</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-primary font-bold tracking-wider uppercase text-sm mb-2">Client Reviews</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900">What They <span class="text-gradient">Say</span></h3>
+            </div>
+
+            <!-- Simple Auto-Slide Testimonial (Handled by JS partly) -->
+            <div class="relative max-w-4xl mx-auto reveal">
+                <div id="testimonial-container" class="glass-card rounded-3xl p-10 md:p-14 text-center relative shadow-xl border-white border">
+                    <i class="fas fa-quote-left text-6xl text-primary/10 absolute top-8 left-8"></i>
+                    <p id="testimonial-text" class="text-xl md:text-2xl text-slate-700 italic mb-8 relative z-10 font-light leading-relaxed">
+                        "Dinesh's expertise in Tally customization completely transformed how we manage our inventory and reporting. The automation saved us countless hours!"
+                    </p>
+                    <div>
+                        <h5 id="testimonial-author" class="font-bold text-slate-900 text-lg">Rajesh Patel</h5>
+                        <p id="testimonial-role" class="text-primary text-sm font-medium">Director, Manufacturing Co.</p>
+                    </div>
+                </div>
+                <!-- Indicators -->
+                <div class="flex justify-center gap-2 mt-6" id="testimonial-dots">
+                    <div class="w-3 h-3 rounded-full bg-primary cursor-pointer transition-all"></div>
+                    <div class="w-3 h-3 rounded-full bg-slate-300 cursor-pointer transition-all"></div>
+                    <div class="w-3 h-3 rounded-full bg-slate-300 cursor-pointer transition-all"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-[40px] p-1 shadow-2xl border border-white/60 reveal overflow-hidden relative">
+                <!-- Inner decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-accent/20 rounded-bl-full z-0"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 bg-white/60 backdrop-blur-xl rounded-[36px] z-10 relative">
+                    
+                    <!-- Contact Info -->
+                    <div class="lg:col-span-2 bg-slate-900 text-white rounded-[36px] p-10 md:p-14 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold mb-2">Let's Discuss Your Business Growth</h3>
+                            <p class="text-slate-400 mb-10 text-sm">Reach out to automate your operations, design a stunning website, or boost your digital sales.</p>
+                            
+                            <div class="space-y-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-user text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-400">Consultant</p>
+                                        <p class="font-semibold text-lg">Dinesh Rana</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-phone-alt text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-400">Mobile Number</p>
+                                        <a href="tel:+919328142199" class="font-semibold text-lg hover:text-accent transition">+91 9328142199</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                                        <i class="fas fa-envelope text-accent"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-slate-400">Email Address</p>
+                                        <a href="mailto:dineshrana24718@gmail.com" class="font-semibold text-lg hover:text-accent transition break-all">dineshrana24718@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="relative z-10 mt-12 flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-3 p-10 md:p-14 relative">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-8">Send a Message</h3>
+                        
+                        <!-- Custom Success Message Box -->
+                        <div id="form-success-msg" class="hidden absolute top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full shadow-lg font-medium transition-all z-20 flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> Message sent successfully!
+                        </div>
+
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Your Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition shadow-sm backdrop-blur-sm" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-2">Mobile Number</label>
+                                    <input type="tel" required class="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition shadow-sm backdrop-blur-sm" placeholder="+91 XXXXXXXXXX">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition shadow-sm backdrop-blur-sm" placeholder="john@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Your Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition shadow-sm backdrop-blur-sm resize-none" placeholder="Tell me about your project or business needs..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-primary text-white font-bold text-lg hover:bg-secondary transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                Send Message <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 border-b border-slate-800 pb-8">
+                <div>
+                    <span class="font-bold text-2xl text-white tracking-tight mb-4 block">Dinesh<span class="text-primary">.</span></span>
+                    <p class="text-sm">Tally Expert | Website Designer | Digital Marketing Consultant</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="#expertise" class="hover:text-primary transition">Expertise</a></li>
+                        <li><a href="#portfolio" class="hover:text-primary transition">Portfolio</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-phone-alt mr-2 text-primary"></i> 9328142199</li>
+                        <li><i class="fas fa-envelope mr-2 text-primary"></i> dineshrana24718@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-sm flex flex-col md:flex-row justify-between items-center">
+                <p>Copyright © 2026 Dinesh Rana. All Rights Reserved.</p>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Safe initialization for Icons
-            try {
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                } else {
-                    console.warn("Lucide icons not loaded from CDN.");
-                }
-            } catch (e) {
-                console.error("Icon initialization error:", e);
-            }
+    <!-- CV Download Modal -->
+    <div id="cv-modal" class="fixed inset-0 z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onclick="closeCvModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="glass-card relative z-10 w-[90%] max-w-md rounded-[32px] p-8 text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-white" id="cv-modal-content">
+            <button onclick="closeCvModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-100 hover:text-red-500 transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="w-24 h-24 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner border border-white">
+                <i class="fas fa-file-pdf text-5xl text-primary drop-shadow-md"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Download Resume</h3>
+            <p class="text-slate-600 mb-8 text-sm leading-relaxed">Get my detailed profile, expertise in Tally, Digital Marketing, and project experience in PDF format.</p>
+            
+            <a href="Dinesh_Rana_Resume.pdf" download class="w-full py-4 px-6 rounded-2xl bg-primary text-white font-bold text-lg hover:bg-secondary transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3" onclick="closeCvModal()">
+                <i class="fas fa-cloud-download-alt"></i> Download Now
+            </a>
+        </div>
+    </div>
 
-            // Mobile Menu
+    <!-- JavaScript Interactions & Three.js Logic -->
+    <script>
+        // --- CV Modal Logic ---
+        function openCvModal() {
+            const modal = document.getElementById('cv-modal');
+            const content = document.getElementById('cv-modal-content');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Allow display:flex to apply before triggering opacity & scale transition
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeCvModal() {
+            const modal = document.getElementById('cv-modal');
+            const content = document.getElementById('cv-modal-content');
+            
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300); // Wait for transition
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            menu.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
 
-            if (btn && menu) {
-                btn.addEventListener('click', () => {
-                    menu.classList.toggle('hidden');
-                });
-
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        menu.classList.add('hidden');
-                    });
-                });
-            }
-
-            // Navbar blur effect
+            // --- Sticky Navbar effect ---
             const navbar = document.getElementById('navbar');
-            if (navbar) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 20) {
-                        navbar.classList.add('shadow-lg', 'bg-dark-900/90');
-                        navbar.classList.remove('glass');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    navbar.classList.remove('shadow-md');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.85)';
+                }
+            });
+
+            // --- Typing Effect ---
+            const titles = [
+                "Tally Expert", 
+                "Business Automation Specialist",
+                "Website Designer", 
+                "Digital Marketing Consultant", 
+                "Lead Generation Specialist"
+            ];
+            let titleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typedTextElement = document.getElementById("typed-text");
+
+            function typeEffect() {
+                const currentTitle = titles[titleIndex];
+                
+                if (isDeleting) {
+                    typedTextElement.textContent = currentTitle.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typedTextElement.textContent = currentTitle.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentTitle.length) {
+                    typeSpeed = 2000; // Pause at end of word
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                    typeSpeed = 500; // Pause before typing next word
+                }
+
+                setTimeout(typeEffect, typeSpeed);
+            }
+            setTimeout(typeEffect, 1000); // Start after 1s delay
+
+            // --- Scroll Reveal Animation ---
+            const reveals = document.querySelectorAll('.reveal');
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
                     } else {
-                        navbar.classList.remove('shadow-lg', 'bg-dark-900/90');
-                        navbar.classList.add('glass');
+                        entry.target.classList.add('active');
+                        // If it contains a counter, animate it
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            if(!counter.classList.contains('counted')) {
+                                animateCounter(counter);
+                                counter.classList.add('counted');
+                            }
+                        });
+                        observer.unobserve(entry.target);
                     }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+            // --- Counter Animation ---
+            function animateCounter(counter) {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const increment = target / (duration / 16); // 60fps
+                
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            }
+
+            // --- Portfolio Slider Controls ---
+            const slider = document.getElementById('slider');
+            const slideLeftBtn = document.getElementById('slideLeft');
+            const slideRightBtn = document.getElementById('slideRight');
+
+            if(slideLeftBtn && slideRightBtn && slider) {
+                slideLeftBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: -400, behavior: 'smooth' });
+                });
+                slideRightBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: 400, behavior: 'smooth' });
                 });
             }
 
-            // Scroll Reveal Functionality
-            function reveal() {
-                var reveals = document.querySelectorAll(".reveal");
-                for (var i = 0; i < reveals.length; i++) {
-                    var windowHeight = window.innerHeight;
-                    var elementTop = reveals[i].getBoundingClientRect().top;
-                    var elementVisible = 50; 
-                    
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveals[i].classList.add("active");
-                    }
+            // --- Testimonial Auto-Slide Logic ---
+            const testimonials = [
+                {
+                    text: "\"Dinesh's expertise in Tally customization completely transformed how we manage our inventory and reporting. The automation saved us countless hours!\"",
+                    name: "Rajesh Patel",
+                    role: "Director, Manufacturing Co."
+                },
+                {
+                    text: "\"The website design and lead generation campaign exceeded our expectations. Our inbound leads increased by 150% within the first two months.\"",
+                    name: "Sunita Sharma",
+                    role: "Founder, Retail Brand"
+                },
+                {
+                    text: "\"A true professional who understands both technology and business operations. His CRM integration streamlined our entire sales process.\"",
+                    name: "Amit Desai",
+                    role: "Sales Head, Tech Solutions"
                 }
-            }
+            ];
             
-            // Event listeners for scroll reveal
-            window.addEventListener("scroll", reveal);
-            // Run immediately in case elements are already in view
-            reveal(); 
-            // Run after a short delay to ensure layout is complete
-            setTimeout(reveal, 200);
+            let tIndex = 0;
+            const tText = document.getElementById('testimonial-text');
+            const tAuthor = document.getElementById('testimonial-author');
+            const tRole = document.getElementById('testimonial-role');
+            const tDots = document.getElementById('testimonial-dots').children;
+
+            function updateTestimonial(index) {
+                tText.style.opacity = 0;
+                setTimeout(() => {
+                    tText.textContent = testimonials[index].text;
+                    tAuthor.textContent = testimonials[index].name;
+                    tRole.textContent = testimonials[index].role;
+                    
+                    // Update dots
+                    Array.from(tDots).forEach((dot, i) => {
+                        if(i === index) {
+                            dot.classList.remove('bg-slate-300');
+                            dot.classList.add('bg-primary');
+                            dot.classList.add('w-6');
+                        } else {
+                            dot.classList.remove('bg-primary');
+                            dot.classList.remove('w-6');
+                            dot.classList.add('bg-slate-300');
+                        }
+                    });
+
+                    tText.style.opacity = 1;
+                }, 300);
+            }
+
+            setInterval(() => {
+                tIndex = (tIndex + 1) % testimonials.length;
+                updateTestimonial(tIndex);
+            }, 5000);
+
+            // Add click events to dots manually
+            Array.from(tDots).forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    tIndex = i;
+                    updateTestimonial(tIndex);
+                });
+            });
+            // Initial dot setup
+            updateTestimonial(0);
+
+            // --- Three.js Background Animation (Clean Light Theme) ---
+            initThreeJS();
         });
+
+        // --- Contact Form Handle ---
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const msgBox = document.getElementById('form-success-msg');
+            msgBox.classList.remove('hidden');
+            
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                msgBox.classList.add('hidden');
+            }, 3000);
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+        }
+
+        function initThreeJS() {
+            const canvas = document.getElementById('hero-canvas');
+            if(!canvas) return;
+
+            const scene = new THREE.Scene();
+            // Transparent background to let CSS gradients/colors show through
+            scene.background = null; 
+
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+            directionalLight.position.set(10, 20, 10);
+            scene.add(directionalLight);
+
+            const pointLight = new THREE.PointLight(0x2563eb, 1, 100);
+            pointLight.position.set(-10, 10, 10);
+            scene.add(pointLight);
+
+            // Create floating abstract geometries
+            const shapes = [];
+            const geometries = [
+                new THREE.IcosahedronGeometry(1.5, 0),
+                new THREE.TorusGeometry(1, 0.4, 16, 100),
+                new THREE.OctahedronGeometry(1.2, 0),
+                new THREE.SphereGeometry(1, 32, 32)
+            ];
+
+            const materialOpts = {
+                color: 0x4f46e5, // Indigo
+                wireframe: true,
+                transparent: true,
+                opacity: 0.15
+            };
+            const materialOptsSolid = {
+                color: 0x06b6d4, // Cyan
+                roughness: 0.2,
+                metalness: 0.8,
+                transparent: true,
+                opacity: 0.2
+            };
+
+            const materials = [
+                new THREE.MeshBasicMaterial(materialOpts),
+                new THREE.MeshStandardMaterial(materialOptsSolid)
+            ];
+
+            for (let i = 0; i < 15; i++) {
+                const geo = geometries[Math.floor(Math.random() * geometries.length)];
+                const mat = materials[Math.floor(Math.random() * materials.length)];
+                const mesh = new THREE.Mesh(geo, mat);
+
+                // Random positioning widely spread
+                mesh.position.x = (Math.random() - 0.5) * 30;
+                mesh.position.y = (Math.random() - 0.5) * 20;
+                mesh.position.z = (Math.random() - 0.5) * 15 - 5; // Push back slightly
+
+                // Random rotation and scale
+                mesh.rotation.x = Math.random() * Math.PI;
+                mesh.rotation.y = Math.random() * Math.PI;
+                
+                const scale = Math.random() * 0.8 + 0.4;
+                mesh.scale.set(scale, scale, scale);
+
+                // Add custom properties for animation
+                mesh.userData = {
+                    rotSpeedX: (Math.random() - 0.5) * 0.01,
+                    rotSpeedY: (Math.random() - 0.5) * 0.01,
+                    floatSpeed: (Math.random() * 0.01) + 0.005,
+                    initialY: mesh.position.y,
+                    offset: Math.random() * Math.PI * 2
+                };
+
+                scene.add(mesh);
+                shapes.push(mesh);
+            }
+
+            // Particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 300;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 40;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                color: 0x2563eb,
+                transparent: true,
+                opacity: 0.4
+            });
+            
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            camera.position.z = 8;
+
+            // Mouse interaction logic
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - windowHalfX);
+                mouseY = (event.clientY - windowHalfY);
+            });
+
+            // Animation Loop
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const time = clock.getElapsedTime();
+
+                // Smoothly interpolate camera target based on mouse
+                targetX = mouseX * 0.001;
+                targetY = mouseY * 0.001;
+                
+                camera.position.x += (targetX - camera.position.x) * 0.05;
+                camera.position.y += (-targetY - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                // Animate Shapes
+                shapes.forEach(shape => {
+                    shape.rotation.x += shape.userData.rotSpeedX;
+                    shape.rotation.y += shape.userData.rotSpeedY;
+                    // Float up and down smoothly
+                    shape.position.y = shape.userData.initialY + Math.sin(time * 0.5 + shape.userData.offset) * 1.5;
+                });
+
+                // Rotate particles slowly
+                particlesMesh.rotation.y = time * 0.05;
+                particlesMesh.rotation.x = time * 0.02;
+
+                renderer.render(scene, camera);
+            }
+
+            // Handle Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            animate();
+        }
     </script>
 </body>
 </html>
