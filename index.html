@@ -64,10 +64,14 @@
     </script>
 
     <style>
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             background-color: #f8fafc;
             color: #0f172a;
-            overflow-x: hidden;
         }
 
         /* Glassmorphism Utilities */
@@ -275,22 +279,22 @@
                     <a href="#contact" class="px-6 py-2.5 rounded-full bg-slate-900 text-white font-medium hover:bg-primary transition-all shadow-md hover:shadow-glow transform hover:-translate-y-0.5">Let's Talk</a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
-                        <i class="fas fa-bars text-2xl"></i>
+                <!-- Mobile Menu Button (Fixed & Made Highly Visible) -->
+                <div class="md:hidden flex items-center ml-auto">
+                    <button id="mobile-menu-btn" class="text-slate-800 bg-slate-100 border border-slate-200 hover:bg-primary hover:text-white hover:border-primary focus:outline-none p-2.5 rounded-xl transition-all shadow-sm z-50 flex items-center justify-center">
+                        <i class="fas fa-bars text-xl w-6 h-6 flex items-center justify-center transition-all duration-300"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card absolute w-full top-20 border-t border-slate-200">
-            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col shadow-xl">
-                <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Services</a>
-                <a href="#expertise" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Expertise</a>
-                <a href="#portfolio" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">Portfolio</a>
-                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-primary">About</a>
-                <a href="#contact" class="block px-3 py-3 mt-4 text-center rounded-xl bg-primary text-white font-medium shadow-md">Contact Me</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full left-0 top-20 border-t border-slate-200 shadow-[0_20px_40px_rgba(0,0,0,0.15)] origin-top z-50">
+            <div class="px-5 pt-4 pb-8 space-y-3 flex flex-col">
+                <a href="#services" class="block px-4 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-slate-50 border border-slate-100 hover:bg-primary hover:text-white hover:border-primary transition-all text-center shadow-sm">Services</a>
+                <a href="#expertise" class="block px-4 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-slate-50 border border-slate-100 hover:bg-primary hover:text-white hover:border-primary transition-all text-center shadow-sm">Expertise</a>
+                <a href="#portfolio" class="block px-4 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-slate-50 border border-slate-100 hover:bg-primary hover:text-white hover:border-primary transition-all text-center shadow-sm">Portfolio</a>
+                <a href="#about" class="block px-4 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-slate-50 border border-slate-100 hover:bg-primary hover:text-white hover:border-primary transition-all text-center shadow-sm">About</a>
+                <a href="#contact" class="block px-4 py-4 mt-4 text-center rounded-xl bg-primary text-white font-bold text-lg shadow-lg hover:bg-secondary hover:-translate-y-1 transition-all">Let's Talk</a>
             </div>
         </div>
     </nav>
@@ -925,7 +929,7 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
-            }, 300);
+            }, 300); // Wait for transition
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -933,11 +937,25 @@
             // --- Mobile Menu Toggle ---
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
+            const menuIcon = btn.querySelector('i');
+
             btn.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
+                
+                // Change Icon logic
+                if(menu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                }
             });
+            
             menu.addEventListener('click', () => {
                 menu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
             });
 
             // --- Sticky Navbar effect ---
